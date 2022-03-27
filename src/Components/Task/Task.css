@@ -1,0 +1,11 @@
+.task {
+  width: 260px;
+  height: 35px;
+  background-color: rgb(223, 223, 223);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-size: large;
+  margin: 10px;
+  border: 1px solid black;
+}

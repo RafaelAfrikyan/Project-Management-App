@@ -1,0 +1,19 @@
+.item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 15px;
+  width: 300px;
+  border: 1px solid black;
+  color: black;
+  background-color: aliceblue;
+}
+.custom-select {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.custom-select > select {
+  width: 95px;
+  height: 30px;
+}
