@@ -8,7 +8,7 @@ export default function Task({ el, dispatch, id }) {
   function openEdit() {
     setEdit(!edit);
   }
-
+  const [firstValue, setFirstValue] = useState(el);
   function addTask(e) {
     setEditValue(e.target.value);
   }
@@ -16,16 +16,17 @@ export default function Task({ el, dispatch, id }) {
     dispatch({
       type: ACTION_TYPES.CHANGE_TASK,
       payload: {
+        firstValue: firstValue,
         text: editValue,
         id: id,
       },
     });
-    openEdit()
+    openEdit();
   }
 
   return (
     <div className="task">
-      {!edit && el}
+      {!edit && editValue}
       {edit && (
         <div>
           <input type="text" value={editValue} onChange={addTask} />

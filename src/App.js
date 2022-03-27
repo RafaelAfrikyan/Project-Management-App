@@ -38,6 +38,17 @@ function reducer(state, action) {
         return el;
       });
       return [...state];
+    case ACTION_TYPES.CHANGE_TASK:
+      state.map((el) => {
+        if (el.id === action.payload.id) {
+          el.taskText = {
+            ...el.taskText,
+            [action.payload.firstValue]: action.payload.text,
+          };
+        }
+        return el;
+      });
+      return [...state];
   }
 }
 

@@ -24,7 +24,7 @@ export default function ItemContent({ dispatch, id, item }) {
       <div className="itemWrap">
         {item.taskText
           ? Object.keys(item.taskText).map((el) => {
-              return <Task setInputTaskText={setInputTaskText} inputTaskText={inputTaskText}  dispatch={dispatch} addButton={addButton} item={item} el={el} id={Math.random()} />;
+              return <Task setInputTaskText={setInputTaskText} inputTaskText={inputTaskText}  dispatch={dispatch} addButton={addButton} item={item} el={el} id={item.id} />;
             })
           : null}
         <input type="text" value={inputTaskText} onChange={addTask} />

@@ -9,7 +9,14 @@ export default function Items({ dispatch, state }) {
       {state.map((item) => {
         return (
           <div className="items">
-          <Item item={item} dispatch={dispatch} state = {state} id={item.id} key={item.id} />
+            <Item
+              key={item.id}
+              item={item}
+              dispatch={dispatch}
+              state={state}
+              id={item.id}
+             
+            />
           </div>
         );
       })}
