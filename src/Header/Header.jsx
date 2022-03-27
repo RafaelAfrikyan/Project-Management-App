@@ -1,5 +1,7 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./Header.css";
+
 
 export default function Header() {
   return (
@@ -7,7 +9,7 @@ export default function Header() {
       <header className="masthead">
         <div className="boards-menu">
           <button className="boards-btn btn">
-            <i className="fab fa-trello boards-btn-icon"></i>Boards
+            <i className="fab fa-trello boards-btn-icon"></i> Boards
           </button>
 
           <div className="board-search">
@@ -22,7 +24,9 @@ export default function Header() {
 
         <div className="logo">
           <h1>
-            <i className="fab fa-trello logo-icon" aria-hidden="true"></i>Trello
+            <i className="fab fa-trello logo-icon" aria-hidden="true"></i>
+
+            <Link to="/">Trello</Link>
           </h1>
         </div>
 
@@ -54,7 +58,10 @@ export default function Header() {
             <i class="far fa-star" aria-hidden="true"></i>
           </button>
 
-          <button class="personal-btn btn">Personal</button>
+          <button class="personal-btn btn">
+             
+            <Link to="personal">Personal </Link>
+          </button>
 
           <button class="private-btn btn">
             <i class="fas fa-briefcase private-btn-icon" aria-hidden="true"></i>

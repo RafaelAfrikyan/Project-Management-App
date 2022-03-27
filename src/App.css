@@ -2,9 +2,3 @@
   text-align: center;
 }
 
-.items {
-  display: flex;
-  flex-direction: row;
-  /* justify-content: center;
-  align-items: center; */
-}

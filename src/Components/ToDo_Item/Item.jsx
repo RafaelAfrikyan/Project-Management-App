@@ -19,10 +19,13 @@ export default function Item({ item, dispatch, id }) {
       <div className="custom-select">
         <h2>{item.title}</h2>
         <p>{item.status}</p>
-        <select onChange={changeStatus}>
-          <option value="Select car">Select car:</option>
-          <option value="Shtap">Shtap</option>
-          <option value="Voch shtap">Voch shtap</option>
+        <select name="Priority" onChange={changeStatus}>
+          <option value="none" selected disabled hidden>
+            Priority
+          </option>
+          <option value="Low">Low</option>
+          <option value="Medium">Medium</option>
+          <option value="High">High</option>
         </select>
       </div>
 

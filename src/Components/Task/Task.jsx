@@ -9,27 +9,27 @@ export default function Task({ el, dispatch, id }) {
     setEdit(!edit);
   }
 
-  const submitValue = (e) => {
+  function addTask(e) {
     setEditValue(e.target.value);
-  };
-
-  const changeValue = () => {
+  }
+  function changeTask() {
     dispatch({
-      type: ACTION_TYPES.CHANGE_TASK_VALUE,
+      type: ACTION_TYPES.CHANGE_TASK,
       payload: {
         text: editValue,
         id: id,
       },
     });
-  };
+    openEdit()
+  }
 
   return (
     <div className="task">
       {!edit && el}
       {edit && (
         <div>
-          <input type="text" value={el} onChange={submitValue} />{" "}
-          <button onClick={changeValue}>Submit</button>
+          <input type="text" value={editValue} onChange={addTask} />
+          <button onClick={changeTask}>Submit</button>
         </div>
       )}
       {!edit && <button onClick={openEdit}>Edit</button>}

@@ -1,14 +1,15 @@
-import React, { useReducer, useState, useEffect } from "react";
+import React, { useReducer } from "react";
+import { Route, Routes } from "react-router-dom";
 import "./App.css";
-import Add from "./Components/Add";
-import Items from "./Components/Items/Items";
-import Header from "./Header/Header";
+import Personal from "./Components/Personal/Personal";
+import Home from "./Home";
+import Layout from "./Layout";
 
 export const ACTION_TYPES = {
   ADD_TASK: "ADD_TASK",
   CHANGE_STATUS: "CHANGE_STATUS",
   ADD_TASK_CONTENT: "ADD_TASK_CONTENT",
-  CHANGE_TASK_VALUE: "CHANGE_TASK_VALUE,",
+  CHANGE_TASK: "CHANGE_TASK,",
 };
 
 function reducer(state, action) {
@@ -51,11 +52,16 @@ function App() {
 
   return (
     <div className="App">
-      <Header />
-      <Add dispatch={dispatch} />
-      <items className="items">
-        <Items dispatch={dispatch} state={state} />
-      </items>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route
+            index
+            path="/"
+            element={<Home dispatch={dispatch} state={state} />}
+          />
+          <Route path="personal" element={<Personal />} />
+        </Route>
+      </Routes>
     </div>
   );
 }
