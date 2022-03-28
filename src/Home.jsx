@@ -8,7 +8,7 @@ export default function Home() {
     <div>
       <items className="items">
         <Items />
-        <Add />
+        
       </items>
     </div>
   );

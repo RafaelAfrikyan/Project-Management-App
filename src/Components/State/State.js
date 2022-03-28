@@ -1,8 +1,45 @@
 import { createContext, useContext } from "react";
 
 const defaultState = {
-  item: [{ title: "Create JS", id: 1, priority: "", status: "", category: "" }],
+  item: [
+    {
+      title: 'Learn English',
+      description: 'Enhance skills',
+      priority: 'medium',
+      id: 1,
+      category: 'JS',
+      status: 'doing'
+    },
+    {
+      title: 'Learn Math',
+      description: 'Enhance skills',
+      priority: 'low',
+      id: 2,
+      category: 'JS',
+      status: 'todo'
+    },
+    {
+      title: 'Learn JS',
+      description: 'Enhance skills',
+      priority: 'high',
+      id: 3,
+      category: 'JS',
+      status: 'doing'
+    },
+    {
+      title: 'Learn English',
+      description: 'Enhance skills',
+      priority: 'medium',
+      id: 4,
+      category: 'JS',
+      status: 'done'
+    },
+   
+  ],
 };
+
+
+
 const ACTION_TYPES = {
   ADD_TASK: "ADD_TASK",
   CHANGE_STATUS: "CHANGE_STATUS",
@@ -11,7 +48,7 @@ const ACTION_TYPES = {
   DELETE_TASK: "DELETE_TASK",
   DELETE_CARD: "DELETE_CARD",
 };
-const State = createContext(defaultState)
+const State = createContext(defaultState);
 
 function reducer(state, action) {
   switch (action.type) {

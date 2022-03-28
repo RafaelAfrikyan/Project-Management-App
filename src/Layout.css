@@ -1,0 +1,13 @@
+.layout {
+  width: 100%;
+  height: auto;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+}
+.menuAdd {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
