@@ -1,7 +1,6 @@
-import React from "react";
+import * as React from "react";
 import { Link } from "react-router-dom";
 import "./Header.css";
-
 
 export default function Header() {
   return (
@@ -59,13 +58,7 @@ export default function Header() {
           </button>
 
           <button class="personal-btn btn">
-             
             <Link to="personal">Personal </Link>
-          </button>
-
-          <button class="private-btn btn">
-            <i class="fas fa-briefcase private-btn-icon" aria-hidden="true"></i>
-            Private
           </button>
         </div>
 

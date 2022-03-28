@@ -1,14 +1,14 @@
 import React from "react";
-import Add from "./Components/Add";
+import Add from "./Components/AddCard/Add";
 import Items from "./Components/Items/Items";
 import "./Home.css";
 
-export default function Home({ dispatch, state }) {
+export default function Home() {
   return (
     <div>
-      <Add dispatch={dispatch} />
       <items className="items">
-        <Items dispatch={dispatch} state={state} />
+        <Items />
+        <Add />
       </items>
     </div>
   );

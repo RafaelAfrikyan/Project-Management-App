@@ -6,7 +6,7 @@ export default function Layout() {
   return (
     <div>
       <header>
-        <Header />
+        <Header  />
       </header>
       <Outlet />
     </div>

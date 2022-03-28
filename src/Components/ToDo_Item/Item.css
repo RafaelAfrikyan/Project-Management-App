@@ -4,10 +4,14 @@
   justify-content: center;
   margin: 15px;
   width: 300px;
+  max-height: 350px;
+  height: 350px;
   border: 1px solid black;
   color: black;
-  background-color: aliceblue;
+  background-color: #c4c9cc;
+  
 }
+
 .custom-select {
   display: flex;
   flex-direction: row;

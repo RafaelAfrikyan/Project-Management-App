@@ -1,35 +1,47 @@
-import React, { useRef, useState } from "react";
-import { ACTION_TYPES } from "../../App";
+import React, { useState, useContext } from "react";
+import { ACTION_TYPES, State } from "../State/State";
 import "./Task.css";
 
-export default function Task({ el, dispatch, id }) {
+export default function Task({ el, id }) {
+  const {dispatch} = useContext(State)
   const [edit, setEdit] = useState(false);
-  const [editValue, setEditValue] = useState(el);
+  const [editedValue, setEditValue] = useState(el);
   function openEdit() {
     setEdit(!edit);
   }
-  const [firstValue, setFirstValue] = useState(el);
-  function addTask(e) {
+
+  function editTask(e) {
     setEditValue(e.target.value);
   }
   function changeTask() {
     dispatch({
       type: ACTION_TYPES.CHANGE_TASK,
       payload: {
-        firstValue: firstValue,
-        text: editValue,
+        firstValue: el,
+        editedValue: editedValue,
         id: id,
       },
     });
-    openEdit();
   }
+
+  function deleteTask() {
+    dispatch({
+      type: ACTION_TYPES.DELETE_TASK,
+      payload: {
+        id: id,
+        firstValue: el,
+      },
+    });
+  }
+  console.log(editedValue);
 
   return (
     <div className="task">
-      {!edit && editValue}
+      <button onClick={deleteTask}>delete</button>
+      {!edit && editedValue}
       {edit && (
-        <div>
-          <input type="text" value={editValue} onChange={addTask} />
+        <div className="addBtn">
+          <input type="text" value={editedValue} onChange={editTask} />
           <button onClick={changeTask}>Submit</button>
         </div>
       )}

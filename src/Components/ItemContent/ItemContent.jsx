@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import "./ItemContent.css";
-import { ACTION_TYPES } from "../../App";
+import { ACTION_TYPES, State } from "../State/State";
 import Task from "../Task/Task";
 
-export default function ItemContent({ dispatch, id, item }) {
+export default function ItemContent({ id, item }) {
+  const {dispatch} = useContext(State)
   const [inputTaskText, setInputTaskText] = useState("");
   function addTask(e) {
     setInputTaskText(e.target.value);
@@ -24,11 +25,23 @@ export default function ItemContent({ dispatch, id, item }) {
       <div className="itemWrap">
         {item.taskText
           ? Object.keys(item.taskText).map((el) => {
-              return <Task setInputTaskText={setInputTaskText} inputTaskText={inputTaskText}  dispatch={dispatch} addButton={addButton} item={item} el={el} id={item.id} />;
+              return (
+                <Task
+                  setInputTaskText={setInputTaskText}
+                  inputTaskText={inputTaskText}
+                  
+                  addButton={addButton}
+                  item={item}
+                  el={el}
+                  id={item.id}
+                />
+              );
             })
           : null}
-        <input type="text" value={inputTaskText} onChange={addTask} />
-        <button onClick={addButton}>+ Add task</button>
+        <div className="addTask">
+          <input type="text" value={inputTaskText} onChange={addTask} />
+          <button onClick={addButton}>+ Add task</button>
+        </div>
       </div>
     </div>
   );
