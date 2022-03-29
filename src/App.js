@@ -8,6 +8,7 @@ import {
   State,
   reducer,
   ACTION_TYPES,
+  filterredState,
 } from "./Components/State/State";
 import Home from "./Home";
 import Layout from "./Layout";
@@ -16,6 +17,7 @@ function App() {
   const [state, dispatch] = useReducer(reducer, defaultState);
 
   console.log(state);
+  console.log(filterredState)
 
   return (
     <State.Provider value={{ state, dispatch }}>

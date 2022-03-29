@@ -42,7 +42,7 @@ export default function Add() {
             value={inputCategory}
             onChange={addCategory}
           />
-          <button onClick={addButton}>Add</button>
+          <button onClick={addButton}>+</button>
         </div>
       ) : (
         <div

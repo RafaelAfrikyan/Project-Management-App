@@ -6,14 +6,14 @@ import { State } from "../State/State";
 export default function Items() {
   const { state} = useContext(State)
   return (
-    <div className="items">
-      {state.item.map((item) => {
+    <div className="items1">
+      {state.item.map((el) => {
         return (
           <div >
             <Item
-              key={item.id}
-              item={item}
-              id={item.id}
+              key={el.id}
+              item={el}
+              id={el.id}
             />
           </div>
         );

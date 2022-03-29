@@ -1,44 +1,42 @@
-import { createContext, useContext } from "react";
+import { createContext, useContext, useState } from "react";
+let filterredState = [];
 
 const defaultState = {
   item: [
     {
-      title: 'Learn English',
-      description: 'Enhance skills',
-      priority: 'medium',
+      title: "Learn React",
+      description: "Enhance skills",
+      priority: "medium",
       id: 1,
-      category: 'JS',
-      status: 'doing'
+      category: "React",
+      status: "doing",
     },
     {
-      title: 'Learn Math',
-      description: 'Enhance skills',
-      priority: 'low',
+      title: "Learn HTML",
+      description: "Enhance skills",
+      priority: "low",
       id: 2,
-      category: 'JS',
-      status: 'todo'
+      category: "HTML",
+      status: "todo",
     },
     {
-      title: 'Learn JS',
-      description: 'Enhance skills',
-      priority: 'high',
+      title: "Learn JS",
+      description: "Enhance skills",
+      priority: "high",
       id: 3,
-      category: 'JS',
-      status: 'doing'
+      category: "JS",
+      status: "doing",
     },
     {
-      title: 'Learn English',
-      description: 'Enhance skills',
-      priority: 'medium',
+      title: "Learn CSS",
+      description: "Enhance skills",
+      priority: "medium",
       id: 4,
-      category: 'JS',
-      status: 'done'
+      category: "CSS",
+      status: "done",
     },
-   
   ],
 };
-
-
 
 const ACTION_TYPES = {
   ADD_TASK: "ADD_TASK",
@@ -47,6 +45,7 @@ const ACTION_TYPES = {
   CHANGE_TASK: "CHANGE_TASK,",
   DELETE_TASK: "DELETE_TASK",
   DELETE_CARD: "DELETE_CARD",
+  FILTER_JS: "FILTER_JS",
 };
 const State = createContext(defaultState);
 
@@ -109,7 +108,13 @@ function reducer(state, action) {
         return el;
       });
       return { ...state };
+    case ACTION_TYPES.FILTER_JS:
+      console.log(action.payload.type);
+      filterredState = state.item.filter((el) => {
+        return el.category === action.payload.type;
+      });
+      return { ...state };
   }
 }
 
-export { reducer, State, defaultState, ACTION_TYPES };
+export { reducer, filterredState, State, defaultState, ACTION_TYPES };

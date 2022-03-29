@@ -26,12 +26,8 @@ export default function Item({ item, id }) {
 
   return (
     <div className="item">
-      <div className="custom-select">
-        <h2>{item.title}</h2>
-        <p>{item.priority}</p>
-        {/* <p>{item.category}</p> */}
-        <button onClick={deleteCard}>delete</button>
-        <select name="Priority" onChange={changeStatus}>
+      <div className="wrapperCard">
+      <select name="Priority" onChange={changeStatus}>
           <option value="none" selected disabled hidden>
             Priority
           </option>
@@ -39,9 +35,16 @@ export default function Item({ item, id }) {
           <option value="Medium">Medium</option>
           <option value="High">High</option>
         </select>
+      <h2>{item.title}</h2>
+      <button onClick={deleteCard}>X</button>
       </div>
+      
+      
+        {/* <p>{item.priority}</p> */}
+        {/* <p>{item.category}</p> */}
 
-      <ItemContent key={item.id} item={item} id={item.id} />
+        <ItemContent key={item.id} item={item} id={item.id} />
+   
     </div>
   );
 }

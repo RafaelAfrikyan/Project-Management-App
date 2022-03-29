@@ -4,7 +4,8 @@ import { ACTION_TYPES, State } from "../State/State";
 import Task from "../Task/Task";
 
 export default function ItemContent({ id, item }) {
-  const {dispatch} = useContext(State)
+  const [added, setAdded] = useState(false);
+  const { dispatch } = useContext(State);
   const [inputTaskText, setInputTaskText] = useState("");
   function addTask(e) {
     setInputTaskText(e.target.value);
@@ -18,30 +19,44 @@ export default function ItemContent({ id, item }) {
       },
     });
     setInputTaskText("");
+    setAdded(!added);
   }
 
   return (
-    <div>
-      <div className="itemWrap">
-        {item.taskText
-          ? Object.keys(item.taskText).map((el) => {
-              return (
-                <Task
-                  setInputTaskText={setInputTaskText}
-                  inputTaskText={inputTaskText}
-                  
-                  addButton={addButton}
-                  item={item}
-                  el={el}
-                  id={item.id}
-                />
-              );
-            })
-          : null}
-        <div className="addTask">
-          <input type="text" value={inputTaskText} onChange={addTask} />
-          <button onClick={addButton}>+ Add task</button>
-        </div>
+    <div className="itemWrap">
+      {item.taskText
+        ? Object.keys(item.taskText).map((el) => {
+            return (
+              <Task
+                setInputTaskText={setInputTaskText}
+                inputTaskText={inputTaskText}
+                addButton={addButton}
+                item={item}
+                el={el}
+                id={item.id}
+              />
+            );
+          })
+        : null}
+
+      <div>
+        {!added && (
+          <button
+            class="button-63"
+            onClick={() => {
+              setAdded(!added);
+            }}
+          >
+            +
+          </button>
+        )}
+
+        {added && (
+          <div className="addTask">
+            <input type="text" value={inputTaskText} onChange={addTask} />
+            <button onClick={addButton}>+Add </button>
+          </div>
+        )}
       </div>
     </div>
   );
