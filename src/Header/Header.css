@@ -1,24 +1,10 @@
 .masthead {
   display: flex;
   width: 100%;
+  justify-content: space-around;
   align-items: center;
   background-color: #0067a3;
   box-shadow: 0 0.1rem 0.1rem rgba(0, 0, 0, 0.1);
-}
-
-.masthead .btn {
-  background-color: #4c94be;
-  border-radius: 0.3rem;
-  transition: background-color 150ms;
-}
-
-.masthead .btn:hover {
-  background-color: #3385b5;
-}
-
-.boards-menu {
-  display: flex;
-  padding-left: 50px;
 }
 
 .boards-btn {
@@ -30,72 +16,12 @@
   padding: 0.6rem 0.8rem;
 }
 
-.boards-btn-icon {
-  font-size: 1.7rem;
-  padding-right: 1.2rem;
-}
-
-.board-search {
-  flex-basis: 18rem;
-  position: relative;
-}
-
-.board-search-input {
-  height: 3rem;
-  border: none;
-  border-radius: 0.3rem;
-  background-color: #4c94be;
-  width: 100%;
-  padding: 0 3rem 0 1rem;
-  color: #fff;
-}
-
-.board-search-input:hover {
-  background-color: #66a4c8;
-}
-
-.search-icon {
-  font-size: 1.5rem;
-  position: absolute;
-  top: 50%;
-  right: 0.8rem;
-  transform: translateY(-50%) rotate(90deg);
-  color: #fff;
-}
-
 .logo {
-  flex: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   font-family: "Courgette", cursive;
   font-size: 2.2rem;
-  font-weight: 700;
-  color: rgba(255, 255, 255, 0.5);
-  margin: 0 2rem;
-  transition: color 150ms;
-  text-align: center;
-  white-space: nowrap;
-  cursor: pointer;
 }
 
-.logo:hover {
-  color: rgba(255, 255, 255, 0.8);
-}
 
-.logo-icon {
-  padding-right: 0.4rem;
-}
-
-.user-settings {
-  display: flex;
-  height: 3rem;
-  color: #fff;
-}
-
-.user-settings-btn {
-  font-size: 1.5rem;
-  width: 3rem;
-  margin-right: 0.8rem;
-}
-
-.user-settings-btn:last-of-type {
-  margin-right: 0;
-}

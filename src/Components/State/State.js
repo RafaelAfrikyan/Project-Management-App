@@ -1,7 +1,8 @@
-import { createContext, useContext, useState } from "react";
-let filterredState = [];
+import { createContext } from "react";
+let filteredState = [];
 
 const defaultState = {
+  isLoggedIn: false,
   item: [
     {
       title: "Learn React",
@@ -10,6 +11,7 @@ const defaultState = {
       id: 1,
       category: "React",
       status: "doing",
+      taskText: null,
     },
     {
       title: "Learn HTML",
@@ -18,6 +20,7 @@ const defaultState = {
       id: 2,
       category: "HTML",
       status: "todo",
+      taskText: null,
     },
     {
       title: "Learn JS",
@@ -26,6 +29,7 @@ const defaultState = {
       id: 3,
       category: "JS",
       status: "doing",
+      taskText: null,
     },
     {
       title: "Learn CSS",
@@ -34,6 +38,7 @@ const defaultState = {
       id: 4,
       category: "CSS",
       status: "done",
+      taskText: null,
     },
   ],
 };
@@ -46,6 +51,8 @@ const ACTION_TYPES = {
   DELETE_TASK: "DELETE_TASK",
   DELETE_CARD: "DELETE_CARD",
   FILTER_JS: "FILTER_JS",
+  LOGGED_IN: "LOGGED_IN",
+  LOG_OUT: "LOG_OUT",
 };
 const State = createContext(defaultState);
 
@@ -62,13 +69,14 @@ function reducer(state, action) {
             id: Math.random(),
             priority: "",
             status: "",
+            
           },
         ],
       };
     case ACTION_TYPES.CHANGE_STATUS:
       state.item.map((el) => {
         if (el.id === action.payload.id) {
-          el.priority = action.payload.option;
+          el.status = action.payload.option;
         }
         return el;
       });
@@ -109,12 +117,15 @@ function reducer(state, action) {
       });
       return { ...state };
     case ACTION_TYPES.FILTER_JS:
-      console.log(action.payload.type);
-      filterredState = state.item.filter((el) => {
+      filteredState = state.item.filter((el) => {
         return el.category === action.payload.type;
       });
       return { ...state };
+    case ACTION_TYPES.LOGGED_IN:
+      return { ...state, isLoggedIn: true };
+    case ACTION_TYPES.LOG_OUT:
+      return { ...state, isLoggedIn: false };
   }
 }
 
-export { reducer, filterredState, State, defaultState, ACTION_TYPES };
+export { reducer, filteredState, State, defaultState, ACTION_TYPES };

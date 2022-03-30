@@ -9,7 +9,7 @@ export default function Items() {
     <div className="items1">
       {state.item.map((el) => {
         return (
-          <div >
+          <div key={el.id}>
             <Item
               key={el.id}
               item={el}

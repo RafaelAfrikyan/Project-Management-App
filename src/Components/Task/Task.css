@@ -24,14 +24,23 @@
   border-radius: 15px;
   color: white;
   background-color: blue;
-} 
- .delBtn{
-  width: 20px;
+}
+.delBtn {
+  width: 80px;
   height: 20px;
-  background:none;
-  border: none;
+  background: none;
+  border: 1px solid black;
   position: fixed;
   margin-top: -25px;
   margin-left: -5px;
   cursor: pointer;
+}
+.wrapEdit {
+  background-color: #cccccc;
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  z-index: 500;
+  top: 100px;
+  border-radius: 25px;
 }

@@ -31,9 +31,9 @@ export default function Item({ item, id }) {
           <option value="none" selected disabled hidden>
             Priority
           </option>
-          <option value="Low">Low</option>
-          <option value="Medium">Medium</option>
-          <option value="High">High</option>
+          <option value="TODO">TODO</option>
+          <option value="DOING">DOING</option>
+          <option value="DONE">DONE</option>
         </select>
       <h2>{item.title}</h2>
       <button onClick={deleteCard}>X</button>

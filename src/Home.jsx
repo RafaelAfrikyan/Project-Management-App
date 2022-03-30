@@ -8,7 +8,7 @@ export default function Home() {
     <div>
       <items className="items">
         <Items />
-        
+        {/* {logClick && <FormP />} */}
       </items>
     </div>
   );

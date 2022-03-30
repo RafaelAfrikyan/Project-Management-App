@@ -5,15 +5,14 @@ import MenuBar from "./Components/MenuBar/MenuBar";
 import Header from "./Header/Header";
 import "./Layout.css";
 
-export default function Layout() {
+export default function Layout({ filteredState }) {
   return (
     <>
       <div className="layout">
         <header>
-          <Header />
+          <Header filteredState={filteredState} />
           <div className="menuAdd">
-          <MenuBar />
-          <Add />
+            <Add />
           </div>
         </header>
       </div>

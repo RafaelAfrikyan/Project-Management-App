@@ -1,10 +1,9 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect, useRef } from "react";
 import { ACTION_TYPES, State } from "../State/State";
 import "./Add.css";
 
-
 export default function Add() {
-  const {dispatch} = useContext(State)
+  const { dispatch } = useContext(State);
   const [inputText, setInputText] = useState("");
   const [firstAdding, setFirstAdding] = useState(false);
   const [inputCategory, setInputCategory] = useState("");
@@ -25,11 +24,24 @@ export default function Add() {
     setInputText("");
     setFirstAdding(!firstAdding);
   }
+  const addRef = useRef(null);
+  useEffect(() => {
+    const checkIfClickedOutside = (e) => {
+      if (firstAdding && addRef.current && !addRef.current.contains(e.target)) {
+        setFirstAdding(false);
+      }
+    };
 
+    document.addEventListener("mousedown", checkIfClickedOutside);
+
+    return () => {
+      document.removeEventListener("mousedown", checkIfClickedOutside);
+    };
+  }, [firstAdding]);
   return (
     <div className="wrap">
       {firstAdding ? (
-        <div className="adding">
+        <div ref={addRef} className="adding">
           <input
             placeholder="Add a list..."
             type="text"
