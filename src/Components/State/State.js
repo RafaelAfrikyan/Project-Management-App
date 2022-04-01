@@ -10,7 +10,7 @@ const defaultState = {
       priority: "medium",
       id: 1,
       category: "React",
-      status: "doing",
+      status: "",
       taskText: null,
     },
     {
@@ -19,7 +19,7 @@ const defaultState = {
       priority: "low",
       id: 2,
       category: "HTML",
-      status: "todo",
+      status: "",
       taskText: null,
     },
     {
@@ -28,7 +28,7 @@ const defaultState = {
       priority: "high",
       id: 3,
       category: "JS",
-      status: "doing",
+      status: "",
       taskText: null,
     },
     {
@@ -37,7 +37,7 @@ const defaultState = {
       priority: "medium",
       id: 4,
       category: "CSS",
-      status: "done",
+      status: "",
       taskText: null,
     },
   ],
@@ -53,6 +53,7 @@ const ACTION_TYPES = {
   FILTER_JS: "FILTER_JS",
   LOGGED_IN: "LOGGED_IN",
   LOG_OUT: "LOG_OUT",
+  GO_TO_BOARD: "GO_TO_BOARD",
 };
 const State = createContext(defaultState);
 
@@ -69,7 +70,6 @@ function reducer(state, action) {
             id: Math.random(),
             priority: "",
             status: "",
-            
           },
         ],
       };
@@ -125,6 +125,11 @@ function reducer(state, action) {
       return { ...state, isLoggedIn: true };
     case ACTION_TYPES.LOG_OUT:
       return { ...state, isLoggedIn: false };
+    case ACTION_TYPES.GO_TO_BOARD:
+      filteredState = state.item.filter((el) => {
+        return el.category === action.payload.id;
+      });
+      return { ...state };
   }
 }
 

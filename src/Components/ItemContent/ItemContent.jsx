@@ -9,8 +9,10 @@ export default function ItemContent({ id, item }) {
   const [inputTaskText, setInputTaskText] = useState("");
   function addTask(e) {
     setInputTaskText(e.target.value);
+    e.stopPropagation();
   }
-  function addButton() {
+  function addButton(e) {
+    e.stopPropagation();
     dispatch({
       type: ACTION_TYPES.ADD_TASK_CONTENT,
       payload: {
@@ -21,6 +23,10 @@ export default function ItemContent({ id, item }) {
     setInputTaskText("");
     setAdded(!added);
   }
+  const handleAdd = (e) => {
+    setAdded(!added);
+    e.stopPropagation();
+  };
 
   return (
     <div className="itemWrap">
@@ -41,12 +47,7 @@ export default function ItemContent({ id, item }) {
 
       <div>
         {!added && (
-          <button
-            class="button-63"
-            onClick={() => {
-              setAdded(!added);
-            }}
-          >
+          <button class="button-63" onClick={handleAdd}>
             +
           </button>
         )}

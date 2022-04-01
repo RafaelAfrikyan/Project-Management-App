@@ -14,6 +14,7 @@ export default function Items() {
               key={el.id}
               item={el}
               id={el.id}
+              category ={el.category}
             />
           </div>
         );
